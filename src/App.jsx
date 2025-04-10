@@ -4,7 +4,7 @@ import { auth } from './config/firebaseConfig.js';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 //import reactLogo from './assets/react.svg';
 //import viteLogo from '/vite.svg';
-// import './App.css';
+import './App.css';
 
 export default function App() {
   const [email, setEmail] = useState("");

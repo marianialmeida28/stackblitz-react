@@ -1,0 +1,72 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212; /* Fundo escuro mais profundo */
+  color: #E0E0E0; /* Texto claro para boa legibilidade */
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #FFFFFF; /* Cor clara para o título */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1E1E1E; /* Fundo escuro do formulário */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); /* Sombra suave para o formulário */
+}
+
+input {
+  width: 90%;
+  max-width: 300px;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #444; /* Cor da borda mais suave */
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #2C2C2C; /* Fundo do campo de entrada escuro */
+  color: #E0E0E0; /* Texto claro nos inputs */
+}
+
+input:focus {
+  background-color: #3D3D3D; /* Fundo do input ao focar */
+  outline: none;
+  border: 1px solid #7D0A55; /* Bordo roxo escuro no foco */
+  box-shadow: 0 0 8px rgba(125, 10, 85, 0.6); /* Sombra suave ao focar */
+}
+
+button {
+  width: 100%;
+  max-width: 300px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #7D0A55; /* Cor do botão roxo */
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Efeito de transição suave */
+  margin: 10px 0;
+}
+
+button:hover {
+  background-color: #9B1F7F; /* Cor mais clara no hover */
+  transform: translateY(-2px); /* Efeito de elevação no hover */
+}
+
+button:disabled {
+  background-color: #555; /* Cor do botão desabilitado */
+  cursor: not-allowed;
+}
+
