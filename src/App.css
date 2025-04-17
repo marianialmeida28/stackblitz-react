@@ -6,25 +6,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #121212; /* Fundo escuro mais profundo */
-  color: #E0E0E0; /* Texto claro para boa legibilidade */
+  background-color: #121212; 
+  color: #E0E0E0;
 }
 
 h2 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #FFFFFF; /* Cor clara para o título */
+  color: #FFFFFF;
 }
 
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1E1E1E; /* Fundo escuro do formulário */
+  background-color: #1E1E1E;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); /* Sombra suave para o formulário */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); 
 }
 
 input {
@@ -32,18 +32,18 @@ input {
   max-width: 300px;
   padding: 12px;
   margin: 10px 0;
-  border: 1px solid #444; /* Cor da borda mais suave */
+  border: 1px solid #444; 
   border-radius: 6px;
   font-size: 1rem;
-  background-color: #2C2C2C; /* Fundo do campo de entrada escuro */
-  color: #E0E0E0; /* Texto claro nos inputs */
+  background-color: #2C2C2C; 
+  color: #E0E0E0;
 }
 
 input:focus {
-  background-color: #3D3D3D; /* Fundo do input ao focar */
+  background-color: #3D3D3D; 
   outline: none;
-  border: 1px solid #7D0A55; /* Bordo roxo escuro no foco */
-  box-shadow: 0 0 8px rgba(125, 10, 85, 0.6); /* Sombra suave ao focar */
+  border: 1px solid #7D0A55; 
+  box-shadow: 0 0 8px rgba(125, 10, 85, 0.6); 
 }
 
 button {
@@ -52,21 +52,21 @@ button {
   padding: 12px;
   border: none;
   border-radius: 6px;
-  background-color: #7D0A55; /* Cor do botão roxo */
+  background-color: #7D0A55; 
   color: white;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Efeito de transição suave */
+  transition: background-color 0.3s ease, transform 0.2s ease; 
   margin: 10px 0;
 }
 
 button:hover {
-  background-color: #9B1F7F; /* Cor mais clara no hover */
-  transform: translateY(-2px); /* Efeito de elevação no hover */
+  background-color: #9B1F7F; 
+  transform: translateY(-2px); 
 }
 
 button:disabled {
-  background-color: #555; /* Cor do botão desabilitado */
+  background-color: #555; 
   cursor: not-allowed;
 }
 
