@@ -1,60 +1,62 @@
 import { useState } from 'react';
-
 import { auth } from './config/firebaseConfig.js';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-//import reactLogo from './assets/react.svg';
-//import viteLogo from '/vite.svg';
+import { signInWithEmailAndPassword } from 'firebase/auth'; 
+import { SignJWT } from 'jose';
 import './App.css';
+import { Link } from 'react-router-dom';
 
 export default function App() {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
 
-  const autenticarComFirebase = async(evento) =>{
-    evento.preventDefault();
-    try {
-      await signInWithEmailAndPassword(auth, email, senha);
+    const autenticarComFirebase = async (evento) => {
+        evento.preventDefault();
+        try {
+            
+            await signInWithEmailAndPassword(auth, email, senha);
+            
+            const secretKey = new TextEncoder().encode('minhaChaveSecreta');
 
-      const secretKey = new TextEncoder().encode('minhaChaveSecreta');
+            const token = await new SignJWT({ user: 'admin' })
+                .setProtectedHeader({ alg: 'HS256' })
+                .setIssuedAt()
+                .setExpirationTime('1h')
+                .sign(secretKey);  
 
-      const token = await new SignJWT({ user: 'admin' })
-        .setProtectedHeader({ alg: 'HS256' })
-        .setIssuedAt()
-        .setExpirationTime('1h')
-        .sign(secretKey);
+            
+            localStorage.setItem('token', token);
 
-      localStorage.setItem('token', token);
-      
-      alert('logado com sucesso');
+            alert('Logado com sucesso!');
+        } catch (err) {
+            alert('Erro no processo: ' + err.message);
+        }
+    };
 
-    } catch (err) {
-      alert('Erro no processo', err);
-    }
+    return (
+        <main>
+            <form onSubmit={autenticarComFirebase}>
+                <label htmlFor="email">E-mail:</label>
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                />
 
-  }
-  return (
-    <main>
-      <form onSubmit={autenticarComFirebase()}>
-        <label htmlFor="email">E-mail</label>
-        <input
-         id="email"
-         name="email"
-         type="email"
-         value={email}
-         onChange={(evento)=> setEmail(evento.target.value)}
-        />
-         <label htmlFor="senha">Senha</label>
-        <input
-         id="password"
-         name="password"
-         type="password"
-         value={senha}
-         onChange={(evento)=> setSenha(evento.target.value)}
-        />
-        <button type="submit">logar</button>
-      </form>
-    </main>
-  )
+                <label htmlFor="password">Senha:</label>
+                <input
+                    id="password"
+                    type="password"
+                    value={senha}
+                    onChange={e => setSenha(e.target.value)}
+                />
+
+                <button type="submit">Entrar</button>
+            </form>
+            <Link to="/Registrar">
+            <p>Não tenho conta!</p>
+            </Link>
+        </main>
+    );
 }
-
-
